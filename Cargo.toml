@@ -8,6 +8,7 @@ edition = "2021"
 [dependencies]
 dioxus = "*"
 dioxus-fullstack = { version = "*" }
+dioxus-router = "0.4.3"
 dioxus-web = "0.4.3"
 
 [features]
