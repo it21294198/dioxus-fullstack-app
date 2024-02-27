@@ -2,6 +2,9 @@
 // import the prelude to get access to the `rsx!` macro and the `Scope` and `Element` types
 use dioxus::prelude::*;
 
+mod routes;
+use routes::{About, Home};
+
 fn main() {
     // launch the web app
     dioxus_web::launch(App);
@@ -26,6 +29,8 @@ fn App(cx: Scope) -> Element {
             h1 { "High-Five counter: {count}" }
             button { onclick: move |_| count += 1, "Up high!" }
             button { onclick: move |_| count -= 1, "Down low!" }
+            About {}
+            Home {}
         }
     })
 }
