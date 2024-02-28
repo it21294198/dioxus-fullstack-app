@@ -13,31 +13,8 @@ fn main() {
 
 // create a component that renders a div with the text "Hello, world!"
 fn App(cx: Scope) -> Element {
-    // let arr = vec!["q", "w", "e"];
-    // let mut count = use_state(cx, || 0);
-
-    // cx.render(rsx! {
-    //     div {
-    //         "style":"background-color:gray;",
-    //         "Hello, world!",
-    //         div{
-    //             hidden:false,
-    //             background:false,
-    //             "style": "background-color: red;",
-    //             "Hello"
-    //         }
-    //         arr.iter().map(|i| rsx!{div{i}})
-    //         h1 { "High-Five counter: {count}" }
-    //         button { onclick: move |_| count += 1, "Up high!" }
-    //         button { onclick: move |_| count -= 1, "Down low!" }
-    //         // About {}
-    //         // Home {}
-    //         Link { to: "/", "Go home!" }
-    //         Link { to: "/about", "Go about!" } // Fixing text for the second Link
-
-    //     }
-    // })
     render! {
+        NavBar{},
         Router::<Route> {}
     }
 }
@@ -49,4 +26,26 @@ enum Route {
 
     #[route("/about")]
     About {},
+}
+
+fn NavBar(cx: Scope) -> Element {
+    let arr = vec!["q", "w", "e"];
+    let mut count = use_state(cx, || 0);
+
+    cx.render(rsx! {
+        div {
+            "style":"background-color:gray;",
+            "Hello, world!",
+            div{
+                hidden:false,
+                background:false,
+                "style": "background-color: red;",
+                "Hello"
+            }
+            arr.iter().map(|i| rsx!{div{i}})
+            h1 { "High-Five counter: {count}" }
+            button { onclick: move |_| count += 1, "Up high!" }
+            button { onclick: move |_| count -= 1, "Down low!" }
+        }
+    })
 }
